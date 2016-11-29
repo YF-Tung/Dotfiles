@@ -1,0 +1,5 @@
+alias ls='ls -G'
+alias rm='rm -i'
+alias ll='ls -alFGh'
+
+alias del='rmtrash'
