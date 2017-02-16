@@ -24,7 +24,28 @@ function createBash()
 	echo "" >> ${fileName}
 	chmod +x ${fileName}
 	echo "Done"
-	vi ${fileName}
+	vi +2 ${fileName}
+    fi
+}
+
+function createCpp()
+{
+    fileName=$1
+    if [ -f ${fileName} ] ; then
+	echo "File already exists! Failed to create."
+    elif [ -d ${fileName} ] ; then
+	echo "Folder already exists! Failed to create."
+    else
+	echo "Creating cpp template..."
+	echo "#include <iostream>" >> ${fileName}
+	echo "using namespace std;" >> ${fileName}
+	echo "" >> ${fileName}
+	echo "int main(int argc, char** argv) {" >> ${fileName}
+	echo "    " >> ${fileName}
+	echo "}" >> ${fileName}
+	echo "" >> ${fileName}
+	echo "Done"
+	vi +5 ${fileName}
     fi
 }
 
@@ -40,6 +61,8 @@ elif [ "$1" == "bash" ] ; then
     createBash $result
 elif [[ "$1" == *.sh ]] ; then
     createBash $1
+elif [[ "$1" == *.cpp ]] ; then
+    createCpp $1
 else
     echo "Illegal type: $1"
 fi
