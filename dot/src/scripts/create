@@ -11,6 +11,23 @@ function askFor()
     result=$line
 }
 
+function createBash()
+{
+    fileName=$1
+    if [ -f ${fileName} ] ; then
+	echo "File already exists! Failed to create."
+    elif [ -d ${fileName} ] ; then
+	echo "Folder already exists! Failed to create."
+    else
+	echo "Creating bash template..."
+	echo "#!/bin/bash" >> ${fileName}
+	echo "" >> ${fileName}
+	chmod +x ${fileName}
+	echo "Done"
+	vi ${fileName}
+    fi
+}
+
 # main
 if [ "$#" -ne 1 ] ; then
     echo "Please specify type. Supporting types are:"
@@ -19,23 +36,10 @@ if [ "$#" -ne 1 ] ; then
 	echo " + ${types}"
     done
 elif [ "$1" == "bash" ] ; then
-
     askFor "What is the file name?"
-    arg_fileName=$result
-
-    if [ -f ${arg_fileName} ] ; then
-	echo "File already exists! Failed to create."
-    elif [ -d ${arg_fileName} ] ; then
-	echo "Folder already exists! Failed to create."
-    else
-	echo "Creating bash template..."
-	echo "#!/bin/bash" >> ${arg_fileName}
-	echo "" >> ${arg_fileName}
-	chmod +x ${arg_fileName}
-	echo "Done"
-	vi ${arg_fileName}
-    fi
-
+    createBash $result
+elif [[ "$1" == *.sh ]] ; then
+    createBash $1
 else
     echo "Illegal type: $1"
 fi
