@@ -28,6 +28,7 @@ function createBash()
 	if [ $numberOfAgrs != "" ]; then
 	    echo "if [ \"\$#\" -ne ${numberOfAgrs} ]; then" >> ${fileName}
 	    echo "    echo \"Illegal number of parameters\"" >> ${fileName}
+	    echo "    exit 1" >> ${fileName}
 	    echo "fi" >> ${fileName}
 	    echo "" >> ${fileName}
 	    entryLineNumber="+6"
