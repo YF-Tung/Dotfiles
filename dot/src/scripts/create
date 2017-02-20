@@ -14,17 +14,27 @@ function askFor()
 function createBash()
 {
     fileName=$1
+    entryLineNumber="+2"
     if [ -f ${fileName} ] ; then
 	echo "File already exists! Failed to create."
     elif [ -d ${fileName} ] ; then
 	echo "Folder already exists! Failed to create."
     else
+	askFor "Number of arguments? (Leave blank for no argument check)"
+	numberOfAgrs=${result}
 	echo "Creating bash template..."
 	echo "#!/bin/bash" >> ${fileName}
 	echo "" >> ${fileName}
+	if [ $numberOfAgrs != "" ]; then
+	    echo "if [ \"\$#\" -ne ${numberOfAgrs} ]; then" >> ${fileName}
+	    echo "    echo \"Illegal number of parameters\"" >> ${fileName}
+	    echo "fi" >> ${fileName}
+	    echo "" >> ${fileName}
+	    entryLineNumber="+6"
+	fi
 	chmod +x ${fileName}
 	echo "Done"
-	vi +2 ${fileName}
+	vi ${entryLineNumber} ${fileName}
     fi
 }
 

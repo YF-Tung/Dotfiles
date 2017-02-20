@@ -12,7 +12,7 @@ cd "${0%/*}"
 sed -i.bak '/#AUTOGEN_BY_YF-Tung\/Dotfiles\,_DO_NOT_EDIT/d' $BASH_FILE
 DATE=`date +%Y-%m-%d`
 echo "# bashrc config begin, added by YF-Tung/Dotfiles on $DATE  $TARGET_STRING" >> $BASH_FILE
-cat src/.bashrc.append >> $BASH_FILE
+cat src/bashrc_append >> $BASH_FILE
 echo "# bashrc config end, added by YF-Tung/Dotfiles on $DATE    $TARGET_STRING" >> $BASH_FILE
 mkdir -p ~/.dotfiles
 cp src/bash_prompt ~/.dotfiles
