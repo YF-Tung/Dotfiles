@@ -1,6 +1,16 @@
-alias ls='ls -G --color=auto'
 alias rm='rm -i'
-alias ll='ls -alFGh'
-
 alias del='rmtrash'
 
+if [ "$(uname)" == "Darwin" ]; then
+    # Do something under Mac OS X platform        
+    alias ls='ls -G'
+    alias ll='ls -alFh'
+    alias lll='ls -alF'
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    # Do something under GNU/Linux platform
+    alias ls='ls --color=auto'
+    alias ll='ls -alFh'
+    alias lll='ls -alF'
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+    # Do something under Windows NT platform
+fi
