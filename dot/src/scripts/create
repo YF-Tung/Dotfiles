@@ -1,0 +1,79 @@
+#!/bin/bash
+#By yftung, 2017/02/14
+
+supportingTypes=("bash")
+result=""
+
+function askFor()
+{
+    echo $1
+    read line
+    result=$line
+}
+
+function createBash()
+{
+    fileName=$1
+    entryLineNumber="+2"
+    if [ -f ${fileName} ] ; then
+	echo "File already exists! Failed to create."
+    elif [ -d ${fileName} ] ; then
+	echo "Folder already exists! Failed to create."
+    else
+	askFor "Number of arguments? (Leave blank for no argument check)"
+	numberOfAgrs=${result}
+	echo "Creating bash template..."
+	echo "#!/bin/bash" >> ${fileName}
+	echo "" >> ${fileName}
+	if [ $numberOfAgrs != "" ]; then
+	    echo "if [ \"\$#\" -ne ${numberOfAgrs} ]; then" >> ${fileName}
+	    echo "    echo \"Illegal number of parameters\"" >> ${fileName}
+	    echo "fi" >> ${fileName}
+	    echo "" >> ${fileName}
+	    entryLineNumber="+6"
+	fi
+	chmod +x ${fileName}
+	echo "Done"
+	vi ${entryLineNumber} ${fileName}
+    fi
+}
+
+function createCpp()
+{
+    fileName=$1
+    if [ -f ${fileName} ] ; then
+	echo "File already exists! Failed to create."
+    elif [ -d ${fileName} ] ; then
+	echo "Folder already exists! Failed to create."
+    else
+	echo "Creating cpp template..."
+	echo "#include <iostream>" >> ${fileName}
+	echo "using namespace std;" >> ${fileName}
+	echo "" >> ${fileName}
+	echo "int main(int argc, char** argv) {" >> ${fileName}
+	echo "    " >> ${fileName}
+	echo "}" >> ${fileName}
+	echo "" >> ${fileName}
+	echo "Done"
+	vi +5 ${fileName}
+    fi
+}
+
+# main
+if [ "$#" -ne 1 ] ; then
+    echo "Please specify type. Supporting types are:"
+    for types in ${supportingTypes}
+    do
+	echo " + ${types}"
+    done
+elif [ "$1" == "bash" ] ; then
+    askFor "What is the file name?"
+    createBash $result
+elif [[ "$1" == *.sh ]] ; then
+    createBash $1
+elif [[ "$1" == *.cpp ]] ; then
+    createCpp $1
+else
+    echo "Illegal type: $1"
+fi
+
