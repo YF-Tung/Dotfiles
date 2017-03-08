@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Illegal number of parameters"
+    exit 1
+fi
+
+echo "Creating ssh tunnel to $1 ... on port 8000"
+ssh -D 8000 -C -N $1
+
