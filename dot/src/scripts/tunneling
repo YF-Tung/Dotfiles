@@ -6,5 +6,5 @@ if [ "$#" -ne 1 ]; then
 fi
 
 echo "Creating ssh tunnel to $1 ... on port 8000"
-ssh -D 8000 -C -N $1
+ssh -D 8000 -CNv $1 2>&1 | grep -v debug
 
