@@ -25,7 +25,7 @@ function createBash()
 	echo "Creating bash template..."
 	echo "#!/bin/bash" >> ${fileName}
 	echo "" >> ${fileName}
-	if [ $numberOfAgrs != "" ]; then
+	if [ "$numberOfAgrs" != "" ]; then
 	    echo "if [ \"\$#\" -ne ${numberOfAgrs} ]; then" >> ${fileName}
 	    echo "    echo \"Illegal number of parameters\"" >> ${fileName}
 	    echo "    exit 1" >> ${fileName}
