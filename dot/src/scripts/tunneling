@@ -5,6 +5,23 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-echo "Creating ssh tunnel to $1 ... on port 8000"
-ssh -D 8000 -CNv $1 2>&1 | grep -v debug
+
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+
+function ctrl_c() {
+    sudo networksetup -setsocksfirewallproxystate "Wi-Fi" off && echo "SOCKS proxy stopped."
+    kill $! && echo "SSH session stopped."
+    exit 0
+}
+
+# main
+echo "Creating ssh tunnel to $1 ... on port 8099 and set SOCKS proxy on Wi-Fi. Press Ctrl-C to stop."
+echo "This may require admin password"
+ssh -D 8099 -CN $1 &
+pid=$!
+sudo networksetup -setsocksfirewallproxy "Wi-Fi" localhost 8099
+echo "SSH started with pid = $pid"
+
+cat
 
