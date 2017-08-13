@@ -1,15 +1,18 @@
 
+  syntax on        " 語法上色顯示
+  filetype on      " Prevent lose syntax HL when split
+
   " 檔案編碼
   set encoding=utf-8
   set fileencodings=utf-8,cp950
  
   " 編輯喜好設定
-  syntax on        " 語法上色顯示
   set nocompatible " VIM 不使用和 VI 相容的模式
   set ai           " 自動縮排
-  set shiftwidth=4 " 設定縮排寬度 = 4
+  set shiftwidth=2 " 設定縮排寬度 = 4
 " set tabstop=4    " tab 的字元數
-  set softtabstop=4 " set expandtab   " 用 space 代替 tab
+  set softtabstop=2
+  set expandtab	   " 用 space 代替 tab
   
   set nu	   " 設定行號
   set ruler        " 顯示右下角設定值
@@ -25,3 +28,8 @@
   set laststatus=2
   set statusline=%4*%<\%m%<[%f\%r%h%w]\ [%{&ff},%{&fileencoding},%Y]%=\[Position=%l,%v,%p%%]
 
+
+  set cinoptions=l1 " Indent for C/C++ case
+
+  set exrc
+  set secure

@@ -3,3 +3,6 @@
 "\e[B": history-search-forward
 "\eOA": history-search-backward
 "\eOB": history-search-forward
+
+# Enable case-insensitive tab completion
+set completion-ignore-case On
