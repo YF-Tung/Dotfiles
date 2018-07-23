@@ -5,4 +5,4 @@ os:
   - linux
   - osx
 script:
-  - bash dot.sh dot.tar
+  - bash dot.sh build/dot.tar
