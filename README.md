@@ -1,3 +1,6 @@
+My dot files!
+
+[![Build Status](https://travis-ci.org/YF-Tung/Dotfiles.svg?branch=master)](https://travis-ci.org/YF-Tung/Dotfiles)
 
 # How to install
 * Install locally: `bash tar.sh && bash dot.sh build/dot.tar`

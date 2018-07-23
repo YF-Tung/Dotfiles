@@ -3,5 +3,4 @@ os:
   - linux
   - osx
 script:
-  - bash tar.sh
-  - bash dot.sh build/dot.tar
+  - make test
