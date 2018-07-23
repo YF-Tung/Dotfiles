@@ -1,5 +1,8 @@
 language: bash
 before_script:
   - bash tar.sh
+os:
+  - linux
+  - osx
 script:
   - bash dot.sh dot.tar
