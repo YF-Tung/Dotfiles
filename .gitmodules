@@ -1,0 +1,3 @@
+[submodule "third-party/sexy-bash-prompt"]
+	path = third-party/sexy-bash-prompt
+	url = https://github.com/twolfson/sexy-bash-prompt.git
