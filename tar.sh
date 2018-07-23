@@ -1,4 +1,4 @@
 #!/bin/bash
-tar cf dot.tar dot
+tar cf build/dot.tar dot
 echo "Successfully tared!"
 

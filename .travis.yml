@@ -1,0 +1,5 @@
+language: bash
+before_script:
+  - bash tar.sh
+script:
+  - bash dot.sh dot.tar

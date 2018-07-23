@@ -1,3 +1,8 @@
+
+# How to install
+* Install locally: `bash tar.sh && bash dot.sh build/dot.tar`
+* Install by curl: `curl <url_to_dot.sh> | /bin/bash`
+
 # Dotfiles
 My dotfiles
 

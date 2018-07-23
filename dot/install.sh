@@ -1,5 +1,10 @@
 #!/bin/bash
 
+SILENT=0
+if [ "$1" == "-s" ]; then
+  SILENT=1
+fi
+
 BASH_FILE=~/.bashrc
 AUTOGEN_TAG="#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT"
 
@@ -27,8 +32,13 @@ do
     echo "Replacing $f"
     cp src/$f ~
 done
-echo "Please enter you email address for git config"
-read EMAIL
+
+if [ "$SILENT" == "1" ]; then
+  EMAIL="yufantung@gmail.com"
+else
+  echo "Please enter you email address for git config"
+  read EMAIL
+fi
 sed -i.bak "s/EMAIL_HERE/$EMAIL/g" ~/.gitconfig
 rm -rf ~/.gitconfig.bak
 
