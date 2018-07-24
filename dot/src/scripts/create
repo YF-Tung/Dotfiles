@@ -11,6 +11,19 @@ function askFor()
     result=$line
 }
 
+function isValidFileName()
+{
+    fileName=$1
+    if [ -f ${fileName} ]; then
+        echo "File already exists! Failed to create."
+        return 1
+    elif [ -d ${fileName} ]; then
+        echo "Directory already exists! Failed to create."
+        return 1
+    fi
+    return 0
+}
+
 function createBash()
 {
     fileName=$1
@@ -60,6 +73,23 @@ function createCpp()
     fi
 }
 
+function createPy()
+{
+    fileName=$1
+    isValidFileName $fileName
+    if [ "$?" != "0" ]; then
+        exit $?
+    fi
+
+    echo "Creating python template..."
+    echo "#!/usr/bin/env python" >> ${fileName}
+    echo "" >> ${fileName}
+    echo "if __name__ == '__main__':" >> ${fileName}
+    chmod +x ${fileName}
+    echo "Done"
+    vi +3 ${fileName}
+}
+
 # main
 if [ "$#" -ne 1 ] ; then
     echo "Please specify type. Supporting types are:"
@@ -74,6 +104,8 @@ elif [[ "$1" == *.sh ]] ; then
     createBash $1
 elif [[ "$1" == *.cpp ]] ; then
     createCpp $1
+elif [[ "$1" == *.py ]] ; then
+    createPy $1
 else
     echo "Illegal type: $1"
 fi
