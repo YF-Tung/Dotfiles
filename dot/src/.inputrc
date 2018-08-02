@@ -6,3 +6,6 @@
 
 # Enable case-insensitive tab completion
 set completion-ignore-case On
+
+# Treat hyphens and undersocres equally when auto complete
+set completion-map-case on
