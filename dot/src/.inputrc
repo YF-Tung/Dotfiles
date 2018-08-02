@@ -8,4 +8,6 @@
 set completion-ignore-case On
 
 # Treat hyphens and undersocres equally when auto complete
+# This will only work on higher bash version (e.g. 4.x)
+# For OSX please install newer bash
 set completion-map-case on
