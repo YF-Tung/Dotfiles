@@ -1,5 +1,5 @@
 alias rm='rm -i'
-alias del='rmtrash'
+alias del='trash'
 
 if [ "$(uname)" == "Darwin" ]; then
     # Do something under Mac OS X platform        
