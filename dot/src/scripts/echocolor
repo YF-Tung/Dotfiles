@@ -1,0 +1,54 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]; then
+    echo "Illegal number of parameters"
+    echo "Usage: $0 <color> <string>"
+    echo "Valid color: black | red | green | yellow | blue | magenta | cyan | white"
+    exit 1
+fi
+
+color_code=37
+add_color=true
+
+case $1 in
+black)
+    color_code=30
+    ;;
+red)
+    color_code=31
+    ;;
+green)
+    color_code=32
+    ;;
+yellow)
+    color_code=33
+    ;;
+blue)
+    color_code=34
+    ;;
+magenta)
+    color_code=35
+    ;;
+cyan)
+    color_code=36
+    ;;
+white)
+    color_code=37
+    ;;
+*)
+    echo "Invalid color: $1"
+    add_color=false
+    ;;
+esac
+
+PREFIX=
+POSTFIX=
+if [[ $add_color == true ]]; then
+    PREFIX="\033[1;${color_code}m"
+    POSTFIX="\033[0m"
+fi
+
+echo -e "${PREFIX}$2${POSTFIX}"
+
+exit $?
+
