@@ -184,10 +184,13 @@ get_prompt_symbol () {
   echo "\$"
 }
 
+host_name=$(hostname)
+if [ "$host_name" == "C02XJ1AZJHD3" ]; then host_name="Mac"; fi
+
 # Define the sexy-bash-prompt
 PS1="\n\[${BOLD}${USER_COLOR}\]\u \
 \[$PREPOSITION_COLOR\]at \
-\[$DEVICE_COLOR\]\h \
+\[$DEVICE_COLOR\]$host_name \
 \[$PREPOSITION_COLOR\]in \
 \[$DIR_COLOR\]\w\
 \[$PREPOSITION_COLOR\]\

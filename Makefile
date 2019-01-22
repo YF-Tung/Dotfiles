@@ -7,8 +7,8 @@ default:
 	@echo " * test" 
 
 install:
-	bash tar.sh
-	bash dot.sh build/dot.tar
+	@dot/install.sh
+	@echo "Done. Please 'source ~/.bashrc' to update this session"
 
 test: install
 	@echo "Test passed"

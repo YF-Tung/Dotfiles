@@ -33,12 +33,18 @@ do
     cp src/$f ~
 done
 
-if [ "$SILENT" == "1" ]; then
-  EMAIL="yufantung@gmail.com"
-else
-  echo "Please enter you email address for git config"
-  read EMAIL
+EMAIL="Yufan.Tung@gmail.com"
+
+if [ "$SILENT" -ne "1" ]; then
+  echo "Please enter you email address for git config [$EMAIL]"
+  read NEW_EMAIL
+  if [[ "$NEW_EMAIL" != "" ]]; then
+      EMAIL=$NEW_EMAIL
+  fi
+  echo "Using email $EMAIL"
 fi
+
+
 sed -i.bak "s/EMAIL_HERE/$EMAIL/g" ~/.gitconfig
 rm -rf ~/.gitconfig.bak
 
@@ -47,4 +53,6 @@ source $BASH_FILE
 bind -f ~/.inputrc
 
 # 4. Done
+source ~/.bashrc
 echo "Successfully installed."
+
