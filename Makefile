@@ -9,6 +9,7 @@ default:
 install:
 	@dot/install.sh
 
-test: install
+test:
+	@dot/install.sh --noninteractive
 	@echo "Test passed"
 

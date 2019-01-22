@@ -1,8 +1,9 @@
 #!/bin/bash
 
-SILENT=0
-if [ "$1" == "-s" ]; then
-  SILENT=1
+if [ "$1" == "--noninteractive" ]; then
+    INTERACTIVE=0
+else
+    INTERACTIVE=1
 fi
 
 BASH_FILE=~/.bashrc
@@ -35,7 +36,7 @@ done
 
 EMAIL="Yufan.Tung@gmail.com"
 
-if [ "$SILENT" -ne "1" ]; then
+if [ "$INTERACTIVE" == "1" ]; then
   echo "Please enter you email address for git config [$EMAIL]"
   read NEW_EMAIL
   if [[ "$NEW_EMAIL" != "" ]]; then
