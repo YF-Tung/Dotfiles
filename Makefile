@@ -8,7 +8,6 @@ default:
 
 install:
 	@dot/install.sh
-	@echo "Done. Please 'source ~/.bashrc' to update this session"
 
 test: install
 	@echo "Test passed"

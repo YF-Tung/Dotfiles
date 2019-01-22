@@ -13,8 +13,10 @@ sudo echo '/usr/local/bin/bash' >> /etc/shells
 chsh -s /usr/local/bin/bash
 ```
 
-## How to install
-* `curl https://raw.githubusercontent.com/YF-Tung/Dotfiles/master/setup.sh | bash`
+## How to install (in bash)
+* `curl -L https://bit.ly/2W7rB4G | bash && source ~/.bashrc`
+
+The link is short for `https://raw.githubusercontent.com/YF-Tung/Dotfiles/master/setup.sh`
 
 ## Effects
 1. Append .bashrc (will clear any content previously appended by this script)
