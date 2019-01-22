@@ -13,14 +13,9 @@ sudo echo '/usr/local/bin/bash' >> /etc/shells
 chsh -s /usr/local/bin/bash
 ```
 
-
 ## How to install
-* Install locally: `make install`
-* Install by curl: `curl <url_to_dot.sh> | bash`
+* `curl https://raw.githubusercontent.com/YF-Tung/Dotfiles/master/setup.sh | bash`
 
 ## Effects
-1. Append .bashrc (any previously appended content is cleared before install)
+1. Append .bashrc (will clear any content previously appended by this script)
 2. Replace/create .vimrc .inputrc .dotfiles/
-
-## Future work
-Upload the dot.sh to my personal website.
