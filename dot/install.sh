@@ -49,11 +49,7 @@ fi
 sed -i.bak "s/EMAIL_HERE/$EMAIL/g" ~/.gitconfig
 rm -rf ~/.gitconfig.bak
 
-# 3. source .bashrc & load .inputrc
-source $BASH_FILE
-bind -f ~/.inputrc
-
-# 4. Done
+# 3. Done
 source ~/.bashrc
 echo "Successfully installed."
 

@@ -1,6 +1,7 @@
 source ~/.dotfiles/bash_prompt					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
 source ~/.dotfiles/bash_alias					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
 source ~/.dotfiles/bash_path					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
+bind -f ~/.inputrc						#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
 mkcd () {							#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
     if [ "$#" -ne 1 ]; then					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
 	echo "Illegal number of args!"				#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
