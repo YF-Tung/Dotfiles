@@ -49,7 +49,10 @@ fi
 sed -i.bak "s/EMAIL_HERE/$EMAIL/g" ~/.gitconfig
 rm -rf ~/.gitconfig.bak
 
-# 3. Done
+# 3. Install vim plugin
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# 4. Done
 source ~/.bashrc
 echo "Successfully installed."
 
