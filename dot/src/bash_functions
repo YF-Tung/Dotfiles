@@ -1,0 +1,12 @@
+mkcd () {
+    if [ "$#" -ne 1 ]; then
+	echo "Illegal number of args!"
+    elif [ -d $1 ]; then
+	echo "Folder already exists!"
+	cd $1
+    elif [ -f $1 ]; then
+	echo "File already exists!" 
+    else
+	mkdir "$1" && cd "$1"
+    fi
+}

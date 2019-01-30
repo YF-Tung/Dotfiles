@@ -1,16 +1,1 @@
-source ~/.dotfiles/bash_prompt					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-source ~/.dotfiles/bash_alias					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-source ~/.dotfiles/bash_path					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-bind -f ~/.inputrc						#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-mkcd () {							#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-    if [ "$#" -ne 1 ]; then					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-	echo "Illegal number of args!"				#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-    elif [ -d $1 ]; then					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-	echo "Folder already exists!"				#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-	cd $1							#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-    elif [ -f $1 ]; then					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-	echo "File already exists!" 				#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-    else							#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-	mkdir "$1" && cd "$1"					#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-    fi								#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
-}								#AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT
+source ~/.dotfiles/rc   AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT

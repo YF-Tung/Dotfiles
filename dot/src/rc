@@ -1,0 +1,5 @@
+source ~/.dotfiles/bash_alias
+source ~/.dotfiles/bash_config
+source ~/.dotfiles/bash_functions
+source ~/.dotfiles/bash_path
+source ~/.dotfiles/bash_prompt
