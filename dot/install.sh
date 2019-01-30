@@ -21,9 +21,7 @@ echo "# bashrc config begin, added by YF-Tung/Dotfiles on $DATE  $AUTOGEN_TAG" >
 cat src/bashrc_append >> $BASH_FILE
 echo "# bashrc config end, added by YF-Tung/Dotfiles on $DATE    $AUTOGEN_TAG" >> $BASH_FILE
 mkdir -p ~/.dotfiles
-cp src/bash_prompt ~/.dotfiles
-cp src/bash_alias ~/.dotfiles
-cp src/bash_path ~/.dotfiles
+cp src/* ~/.dotfiles
 cp -r src/scripts ~/.dotfiles
 
 # 2. dotfiles
