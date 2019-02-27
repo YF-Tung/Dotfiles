@@ -33,7 +33,6 @@ do
 done
 
 EMAIL="Yufan.Tung@gmail.com"
-
 if [ "$INTERACTIVE" == "1" ]; then
   echo "Please enter you email address for git config [$EMAIL]"
   read NEW_EMAIL
@@ -42,9 +41,16 @@ if [ "$INTERACTIVE" == "1" ]; then
   fi
   echo "Using email $EMAIL"
 fi
-
-
 sed -i.bak "s/EMAIL_HERE/$EMAIL/g" ~/.gitconfig
+
+GIT_VERSION=$(git --version | awk '{print $3}')
+GIT_MAJOR_VERSION=${GIT_VERSION::1}
+if [ "$GIT_MAJOR_VERSION" -ge "2" ]; then
+  GIT_PUSH_DEFAULT_POLICY="simple"
+else
+  GIT_PUSH_DEFAULT_POLICY="nothing"
+fi
+sed -i.bak "s/PUSH_DEFAULT_HERE/$GIT_PUSH_DEFAULT_POLICY/g" ~/.gitconfig
 rm -rf ~/.gitconfig.bak
 
 # 3. Install vim plugin

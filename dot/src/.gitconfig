@@ -1,9 +1,9 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Yu-Fan Tung
-	email = EMAIL_HERE 
+	email = EMAIL_HERE
 [push]
-	default = simple
+	default = PUSH_DEFAULT_HERE
 [core]
 	editor = /usr/bin/vim
 [alias]
