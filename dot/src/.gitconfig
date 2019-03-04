@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Yu-Fan Tung
-	email = EMAIL_HERE
+	EMAIL_HERE
 [push]
 	default = PUSH_DEFAULT_HERE
 [core]

@@ -32,7 +32,7 @@ do
     cp src/$f ~
 done
 
-EMAIL="Yufan.Tung@gmail.com"
+EMAIL=""
 if [ "$INTERACTIVE" == "1" ]; then
   echo "Please enter you email address for git config [$EMAIL]"
   read NEW_EMAIL
@@ -40,6 +40,9 @@ if [ "$INTERACTIVE" == "1" ]; then
       EMAIL=$NEW_EMAIL
   fi
   echo "Using email $EMAIL"
+fi
+if [[ "$EMAIL" != "" ]]; then
+    EMAIL="email = $EMAIL"
 fi
 sed -i.bak "s/EMAIL_HERE/$EMAIL/g" ~/.gitconfig
 
