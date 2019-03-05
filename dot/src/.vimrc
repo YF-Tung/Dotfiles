@@ -87,3 +87,5 @@ nmap <F7> :e %:r.h<CR>
 " Switch to .cpp file
 nmap <F8> :e %:r.cpp<CR>
 
+" Delete empty tab/spaces
+nmap <F9> :%s/^\s\+$//g<CR>
