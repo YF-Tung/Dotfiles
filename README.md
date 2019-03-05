@@ -15,6 +15,7 @@ chsh -s /usr/local/bin/bash
 
 ## How to install (in bash)
 * `curl -L https://bit.ly/2W7rB4G | bash && source ~/.bashrc`
+* (Install offline) Paste the content of `setup_offline.sh` into terminal
 
 The link is short for `https://raw.githubusercontent.com/YF-Tung/Dotfiles/master/setup.sh`
 
