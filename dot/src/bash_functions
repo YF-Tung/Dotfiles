@@ -10,3 +10,20 @@ mkcd () {
 	mkdir "$1" && cd "$1"
     fi
 }
+c () {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: $0 <dir>"
+    elif [ -d $1 ]; then
+        cd $1
+        ls
+    else
+        echo "$1 is not a directory"
+    fi
+}
+prettyjson() {
+    if [ "$#" -eq 1 ]; then
+        echo "$1" | python -m json.tool
+    else
+        python -m json.tool
+    fi
+}

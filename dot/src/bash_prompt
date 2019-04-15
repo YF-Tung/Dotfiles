@@ -185,7 +185,7 @@ get_prompt_symbol () {
 }
 
 host_name=$(hostname)
-if [ "$host_name" == "C02XJ1AZJHD3" ]; then host_name="Mac"; fi
+if [ "$host_name" == "C02V60TEHV2V" ]; then host_name="Mac"; fi
 
 # Define the sexy-bash-prompt
 PS1="\n\[${BOLD}${USER_COLOR}\]\u \
