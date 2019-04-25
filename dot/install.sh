@@ -25,7 +25,7 @@ cp src/* ~/.dotfiles
 cp -r src/scripts ~/.dotfiles
 
 # 2. dotfiles
-DOTFILES=".vimrc .inputrc .gitconfig"
+DOTFILES=".vimrc .inputrc .screenrc .gitconfig"
 for f in $DOTFILES
 do
     echo "Replacing $f"
