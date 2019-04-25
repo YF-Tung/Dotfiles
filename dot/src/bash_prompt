@@ -42,6 +42,7 @@
   DEVICE_COLOR="\033[1;33m" #ORANGE
   DIR_COLOR="\033[1;32m" #GREEN
   GIT_STATUS_COLOR="\033[1;35m" #PURPLE
+  SCREEN_COLOR="\033[1;34m" #BLUE
   BOLD=""
   RESET="\033[m"
 #fi
@@ -187,8 +188,13 @@ get_prompt_symbol () {
 host_name=$(hostname)
 if [ "$host_name" == "C02V60TEHV2V" ]; then host_name="Mac"; fi
 
+SCREEN_NUM=$(screen -ls|grep Socket|awk '{print $1}')
+if [ "$SCREEN_NUM" == "No" ]; then SCREEN_NUM="";
+    else SCREEN_NUM="[$SCREEN_NUM] " ; fi
+
 # Define the sexy-bash-prompt
 PS1="\n\[${BOLD}${USER_COLOR}\]\u \
+\[$SCREEN_COLOR${SCREEN_NUM}\]\
 \[$PREPOSITION_COLOR\]at \
 \[$DEVICE_COLOR\]$host_name \
 \[$PREPOSITION_COLOR\]in \
@@ -199,3 +205,8 @@ PS1="\n\[${BOLD}${USER_COLOR}\]\u \
 #  echo -n \" on \" && \
 #  echo -n \"\[$GIT_STATUS_COLOR\]\$(get_git_info)\" && \
 #  echo -n \"\[$NORMAL\]\")\[$PREPOSITION_COLOR\]\n(\t)\
+
+# Additional settings if in gnu screen
+if [ 'screen' == "${TERM}" ]; then
+    export PS1="--SCREEN--"$PS1
+fi
