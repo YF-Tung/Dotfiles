@@ -4,6 +4,8 @@
 tempDir=`mktemp -d`
 trap "rm -rf $tempDir" EXIT
 
+export LC_ALL=zh_TW.UTF-8
+export LANG=zh_TW.UTF-8
 tar zcf ${tempDir}/dot.tgz dot
 bTxt=$(base64 -i ${tempDir}/dot.tgz)
 
