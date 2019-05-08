@@ -41,6 +41,7 @@
   PREPOSITION_COLOR="\033[1;37m" #WHITE
   DEVICE_COLOR="\033[1;33m" #ORANGE
   DIR_COLOR="\033[1;32m" #GREEN
+  CLOCK_COLOR="\033[1;33m" #ORANGE
   GIT_STATUS_COLOR="\033[1;35m" #PURPLE
   SCREEN_COLOR="\033[1;34m" #BLUE
   BOLD=""
@@ -199,6 +200,7 @@ PS1="\n\[${BOLD}${USER_COLOR}\]\u \
 \[$DEVICE_COLOR\]$host_name \
 \[$PREPOSITION_COLOR\]in \
 \[$DIR_COLOR\]\w\
+\[$CLOCK_COLOR\] (\A)\
 \[$PREPOSITION_COLOR\]\
  $(get_prompt_symbol) \[$RESET\]"
 #\$( is_on_git && \
