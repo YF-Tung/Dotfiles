@@ -1,6 +1,12 @@
 #!/bin/bash
 #By yftung, 2017/02/14
 
+if type vim >/dev/null 2>/dev/null ; then
+    EDITOR=vim
+else
+    EDITOR=vi
+fi
+
 supportingTypes=("bash")
 result=""
 
@@ -48,7 +54,7 @@ function createBash()
 	fi
 	chmod +x ${fileName}
 	echo "Done"
-	vi ${entryLineNumber} ${fileName}
+	${EDITOR} ${entryLineNumber} ${fileName}
     fi
 }
 
@@ -69,7 +75,7 @@ function createCpp()
 	echo "}" >> ${fileName}
 	echo "" >> ${fileName}
 	echo "Done"
-	vi +5 ${fileName}
+	${EDITOR} +5 ${fileName}
     fi
 }
 
@@ -87,7 +93,7 @@ function createPy()
     echo "if __name__ == '__main__':" >> ${fileName}
     chmod +x ${fileName}
     echo "Done"
-    vi +3 ${fileName}
+    ${EDITOR} +3 ${fileName}
 }
 
 # main
