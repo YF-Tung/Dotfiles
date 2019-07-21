@@ -1,0 +1,3 @@
+pushd ~ > /dev/null
+source .bashrc
+popd > /dev/null
