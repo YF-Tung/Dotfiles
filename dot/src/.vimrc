@@ -1,34 +1,7 @@
 
 set nocompatible
 syntax on
-filetype off  " For Vundle
-
-""""""""""""""
-""" Vundle """
-""""""""""""""
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" This plugin requires colorscheme to work
-Plugin 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey23 ctermbg=237
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey3  ctermbg=232
-let g:indent_guides_start_level = 2  " Level to start showing highlight
-let g:indent_guides_guide_size = 2  " Size of highlight
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-"""""""""""""""""""""
-""" End of vundle """
-"""""""""""""""""""""
+filetype on
 
 " File Encodings
 set encoding=utf-8
@@ -89,3 +62,5 @@ nmap <F8> :e %:r.cpp<CR>
 
 " Delete empty tab/spaces
 nmap <F9> :%s/^\s\+$//g<CR>
+
+autocmd BufEnter *.hql :setlocal filetype=sql

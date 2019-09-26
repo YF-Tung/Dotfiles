@@ -18,7 +18,11 @@ touch $BASH_FILE
 sed -i.bak '/#AUTOGEN_BY_YF-Tung\/Dotfiles\,_DO_NOT_EDIT/d' $BASH_FILE
 DATE=`date +%Y-%m-%d`
 echo "# bashrc config begin, added by YF-Tung/Dotfiles on $DATE  $AUTOGEN_TAG" >> $BASH_FILE
-cat src/bashrc_append >> $BASH_FILE
+pushd ~
+HOME_PATH=$(pwd)
+popd
+APPEND_STR="source ${HOME_PATH}/.dotfiles/rc   #AUTOGEN_BY_YF-Tung/Dotfiles,_DO_NOT_EDIT"
+echo "${APPEND_STR}" >> $BASH_FILE
 echo "# bashrc config end, added by YF-Tung/Dotfiles on $DATE    $AUTOGEN_TAG" >> $BASH_FILE
 mkdir -p ~/.dotfiles
 cp src/* ~/.dotfiles
@@ -56,13 +60,7 @@ fi
 sed -i.bak "s/PUSH_DEFAULT_HERE/$GIT_PUSH_DEFAULT_POLICY/g" ~/.gitconfig
 rm -rf ~/.gitconfig.bak
 
-# 3. Install vim plugin
-cd ~
-#if [ ! -d ".vim/bundle/Vundle.vim" ]; then
-#    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-#fi
-
-# 4. Done
+# 3. Done
 source ~/.bashrc
 echo "Successfully installed."
 
