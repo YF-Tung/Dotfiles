@@ -18,3 +18,4 @@ fi
 
 alias echored='echocolor red'
 alias echogreen='echocolor green'
+alias diff='colordiff -u'
