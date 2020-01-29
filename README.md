@@ -4,7 +4,7 @@ Set up my productivity environment. In seconds.
 [![Build Status](https://travis-ci.org/YF-Tung/Dotfiles.svg?branch=master)](https://travis-ci.org/YF-Tung/Dotfiles)
 
 ## Requirements
-* bash 4.x
+* bash 4.x above
 
 Default bash for macOS is really old. Please update it by the following.
 ```bash
@@ -18,6 +18,11 @@ chsh -s /usr/local/bin/bash
 * (Install offline) Paste the content of `setup_offline.sh` into terminal
 
 The link is short for `https://raw.githubusercontent.com/YF-Tung/Dotfiles/master/setup.sh`
+
+## How to develop
+* `make test`
+* `generate_offline_setup.sh`
+* commit and push
 
 ## Effects
 1. Append .bashrc (will clear any content previously appended by this script)

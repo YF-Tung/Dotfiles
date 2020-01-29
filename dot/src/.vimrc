@@ -64,3 +64,5 @@ nmap <F8> :e %:r.cpp<CR>
 nmap <F9> :%s/^\s\+$//g<CR>
 
 autocmd BufEnter *.hql :setlocal filetype=sql
+let g:ftplugin_sql_omni_key = '<C-j>'  " Fix laggy Ctrl+C for sql
+
