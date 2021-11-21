@@ -194,7 +194,7 @@ if [ "$SCREEN_NUM" == "No" ]; then SCREEN_NUM="";
     else SCREEN_NUM="[$SCREEN_NUM] " ; fi
 
 # Define the sexy-bash-prompt
-PS1="\n\[${BOLD}${USER_COLOR}\]\u \
+PS1="\[${BOLD}${USER_COLOR}\]\u \
 \[$SCREEN_COLOR${SCREEN_NUM}\]\
 \[$PREPOSITION_COLOR\]at \
 \[$DEVICE_COLOR\]$host_name \
@@ -202,7 +202,7 @@ PS1="\n\[${BOLD}${USER_COLOR}\]\u \
 \[$DIR_COLOR\]\w\
 \[$CLOCK_COLOR\] (\A)\
 \[$PREPOSITION_COLOR\]\
- $(get_prompt_symbol) \[$RESET\]"
+\n$(get_prompt_symbol) \[$RESET\]"
 #\$( is_on_git && \
 #  echo -n \" on \" && \
 #  echo -n \"\[$GIT_STATUS_COLOR\]\$(get_git_info)\" && \
